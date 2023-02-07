@@ -1,3 +1,31 @@
+최신 dll적용방법
+https://sourceforge.net/projects/mpv-player-windows/files/libmpv/
+에서 다운로드, 이름이 바뀌기 때문에
+
+winform 프로젝트 lib폴더에 libmpv-2.dll 추가 & 항상복사 옵션
+
+mpvplayer.cs에서
+
+		private readonly string[] possibleLibMpvPaths = new string[]
+		{
+			"libmpv-2.dll",
+			@"lib\libmpv-2.dll",
+			//"mpv-1.dll",
+			//@"lib\mpv-1.dll"
+		};
+      
+윈폼 프로젝트 속성에서 항상 64비트 설정
+
+
+mpvfunction.cs에서
+			DetachDestroy			= LoadFunction<MpvDetachDestroy>("mpv_destroy");
+로 수정
+
+
+
+
+====================================================================================================
+
 # Mpv<span />.NET (lib)
 
 [![Version](https://img.shields.io/nuget/v/Mpv.NET.svg?style=flat-square)](https://www.nuget.org/packages/Mpv.NET/)
